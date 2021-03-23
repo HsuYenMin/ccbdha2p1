@@ -21,3 +21,57 @@ Resources:
       Environment:
         Variables:
           REGION: us-east-1
+      Policies:
+      - AWSLambdaExecute
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+            Resource: 'arn:aws:s3:::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Resource: 'arn:aws:logs::::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - es:*
+            Resource: 'arn:aws:es::::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - rekognition:*
+            Resource: 'arn:aws:rekognition::::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - kms:DescribeKey
+              - kms:ListAliases
+              - lambda:GetPolicy
+              - lambda:ListFunctions
+              - lambda:AddPermission
+              - lambda:RemovePermission
+              - cloudwatch:GetMetricStatistics
+              - cloudwatch:DescribeAlarms
+              - cloudwatch:DescribeAlarmsForMetric
+              - kendra:ListIndices
+              - lex:*
+              - polly:DescribeVoices
+              - polly:SynthesizeSpeech
+              - iam:GetRole
+              - iam:DeleteRole
+              - iam:CreateServiceLinkedRole
+              - iam:DeleteServiceLinkedRole
+              - iam:GetServiceLinkedRoleDeletionStatus
+              - iam:DetachRolePolicy
+              - iam:PassRole
+            Resource: '*'
