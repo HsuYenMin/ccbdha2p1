@@ -12,7 +12,7 @@ Resources:
       Description: 'search'
       MemorySize: 128
       Timeout: 30
-            Policies:
+      Policies:
       - AWSLambdaExecute
       - Version: '2012-10-17'
         Statement:
