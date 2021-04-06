@@ -2,7 +2,18 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: '-'
 Resources:
-  ccbdha2Lambda:
+  BasicApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: P1API
+      StageName: dev
+      Cors: "'*'"
+      DefinitionBody:
+        'Fn::Transform':
+           Name: 'AWS::Include'
+           Parameters:
+             Location: ./AI-Photo-Search-apigateway.yaml
+  ccbdha2lf1_p1:
     Type: 'AWS::Serverless::Function'
     Properties:
       FunctionName: ccbdha2lf1_p1
