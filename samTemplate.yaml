@@ -79,9 +79,10 @@ Resources:
             Resource: '*'
 
       Events:
-        getAZsAPI:
+        Search:
           Type: Api
           Properties:
+            RestApiId: !Ref BasicApiGateway
             Path: /search
             Method: get
       Environment:
