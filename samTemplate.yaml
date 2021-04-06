@@ -13,10 +13,10 @@ Resources:
            Name: 'AWS::Include'
            Parameters:
              Location: ./AI-Photo-Search-apigateway.yaml
-  ccbdha2lf1_p1:
+  ccbdha2lf1p1:
     Type: 'AWS::Serverless::Function'
     Properties:
-      FunctionName: ccbdha2lf1_p1
+      FunctionName: ccbdha2lf1p1
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
       CodeUri: ./ccbdha2lf1
