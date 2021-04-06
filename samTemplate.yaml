@@ -13,13 +13,13 @@ Resources:
            Name: 'AWS::Include'
            Parameters:
              Location: ./AI-Photo-Search-apigateway.yaml
-  ccbdha2lf1p1:
+  searchphotosp1:
     Type: 'AWS::Serverless::Function'
     Properties:
-      FunctionName: ccbdha2lf1p1
+      FunctionName: search-photos-p1
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: ./ccbdha2lf1
+      CodeUri: ./search-photos
       Description: 'search'
       MemorySize: 128
       Timeout: 30
@@ -88,3 +88,43 @@ Resources:
       Environment:
         Variables:
           REGION: us-east-1
+  ccbdha2lf1p1:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: ccbdha2lf1p1
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./ccbdha2lf1
+      MemorySize: 128
+      Timeout: 30
+      Layers:
+        - "arn:aws:lambda:us-east-1:326453046054:layer:eslayer38:2"
+      Policies:
+      - AWSLambdaExecute
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+            Resource: 'arn:aws:s3:::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Resource: 'arn:aws:logs::::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - es:*
+            Resource: 'arn:aws:es::::*'
+      - Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - rekognition:*
+            Resource: 'arn:aws:rekognition::::*'

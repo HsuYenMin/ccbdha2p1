@@ -38,7 +38,7 @@ paths:
       x-amazon-apigateway-integration:
         httpMethod: "POST"
         uri: 
-          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ccbdha2lf1p1.Arn}/invocations"
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${searchphotosp1.Arn}/invocations"
         responses:
           default:
             statusCode: "200"
@@ -52,7 +52,7 @@ paths:
       x-amazon-apigateway-integration:
         httpMethod: "POST"
         uri:
-          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ccbdha2lf1p1.Arn}/invocations"
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${searchphotosp1.Arn}/invocations"
         responses:
           default:
             statusCode: "200"
